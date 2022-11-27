@@ -1,0 +1,4 @@
+{
+  "ext": "src/**/*.ts",
+  "verbose": true
+}

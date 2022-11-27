@@ -1,0 +1,31 @@
+service: test
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+  	
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    # watch:
+    #   pattern: ['src/**/*.ts']
+    #   ignore: []
+  serverless-offline:
+    httpPort: 3101
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - http:
+          method: ANY
+          path: '/'
+          cors: true
