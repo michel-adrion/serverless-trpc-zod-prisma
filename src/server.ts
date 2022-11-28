@@ -2,11 +2,9 @@ import { inferAsyncReturnType, initTRPC } from '@trpc/server';
 import { awsLambdaRequestHandler } from '@trpc/server/adapters/aws-lambda';
 import type { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda';
 import type { APIGatewayProxyEvent } from 'aws-lambda';
-import { z } from 'zod';
 
 function createContext({
   event,
-  context,
 }: CreateAWSLambdaContextOptions<APIGatewayProxyEvent>) {
   return {
     event: event,
@@ -22,7 +20,9 @@ const publicProcedure = t.procedure;
 const router = t.router;
 
 const appRouter = router({
-  greeting: publicProcedure.query(() => 'hello tRPC v10!'),
+  greeting: publicProcedure.query(async () => {
+    return 'hello tRPC v10!';
+  }),
 });
 
 export type AppRouter = typeof appRouter;

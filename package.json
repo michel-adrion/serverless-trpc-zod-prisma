@@ -1,8 +1,10 @@
 {
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
     "start": "nodemon ./node_modules/.bin/serverless offline start --verbose"
   },
   "dependencies": {
+    "@prisma/client": "^4.6.1",
     "@trpc/server": "^10.4.0",
     "zod": "^3.19.1"
   },
