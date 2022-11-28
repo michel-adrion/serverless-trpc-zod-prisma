@@ -23,9 +23,8 @@ custom:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: src/server.handler
     events:
       - http:
-          method: ANY
-          path: '/'
-          cors: true
+          path: /{proxy+}
+          method: any

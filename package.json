@@ -3,9 +3,14 @@
     "start": "nodemon ./node_modules/.bin/serverless offline start --verbose"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.109",
     "esbuild": "^0.15.15",
     "nodemon": "^2.0.20",
     "serverless-esbuild": "^1.33.2",
     "serverless-offline": "^11.6.0"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.4.0",
+    "zod": "^3.19.1"
   }
 }
