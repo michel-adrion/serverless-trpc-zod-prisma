@@ -1,9 +1,12 @@
 {
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "nodemon ./node_modules/.bin/serverless offline start --verbose"
+    "start": "nodemon ./node_modules/.bin/serverless offline start --verbose",
+    "db:migrate": "prisma migrate dev"
   },
   "dependencies": {
+    "@aws-lambda-powertools/logger": "^1.5.0",
+    "@middy/core": "^4.0.0",
     "@prisma/client": "^4.6.1",
     "@trpc/server": "^10.4.0",
     "zod": "^3.19.1"
